@@ -7,3 +7,7 @@ exports.HTTP_STATUS = {
   UNPROCESSABLE_ENTITY: 422,
   SERVER_ERROR: 500,
 };
+
+exports.DATABASE_TABLE = {
+  COFFEE: 'coffee',
+};

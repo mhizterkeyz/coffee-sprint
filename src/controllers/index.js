@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const catsController = require('./cats.controller');
+const coffeeController = require('./coffee-controller');
 
-const controllers = [catsController];
+const controllers = [coffeeController];
 
 module.exports = (app) => {
   controllers.forEach(([path, handler]) => {
