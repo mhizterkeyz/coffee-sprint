@@ -4,8 +4,8 @@ const Response = require('../shared/response');
 const validate = require('../shared/validate');
 const { PaginatedRequestValidation } = require('../shared/validation-schemas');
 
-const coffeeController = (coffee) => {
-  coffee.get(
+const coffeeController = (coffeeRoute) => {
+  coffeeRoute.get(
     '/',
     validate({ query: PaginatedRequestValidation }),
     async (req, res) => {
@@ -16,6 +16,12 @@ const coffeeController = (coffee) => {
       Response.data(res, HTTP_STATUS.OK, 'available coffee', data, meta);
     },
   );
+
+  coffeeRoute.get('/:coffeeId', async (req, res) => {
+    const coffee = await coffeeService.getSingleCoffee(req.params.coffeeId);
+
+    Response.data(res, HTTP_STATUS.OK, 'coffee', coffee);
+  });
 };
 
 module.exports = ['/coffee', coffeeController];

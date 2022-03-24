@@ -4,4 +4,8 @@ module.exports = {
   getPaginatedCoffee(params) {
     return CoffeeRepository.getPaginatedCoffee(params);
   },
+
+  getSingleCoffee(id) {
+    return CoffeeRepository.getSingleCoffee(id);
+  },
 };
