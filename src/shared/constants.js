@@ -10,4 +10,5 @@ exports.HTTP_STATUS = {
 
 exports.DATABASE_TABLE = {
   COFFEE: 'coffee',
+  USER: 'user',
 };
