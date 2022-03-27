@@ -9,4 +9,9 @@ module.exports = () => ({
   anonymousSms: {
     apiUrl: process.env.ANONYMOUS_SMS_API_URL,
   },
+  sendGrid: {
+    apiKey: process.env.SENDGRID_API_KEY,
+    defaultFromName: process.env.SENDGRID_DEFAULT_FROM_NAME,
+    defaultFromEmail: process.env.SENDGRID_DEFAULT_FROM_EMAIL,
+  },
 });
