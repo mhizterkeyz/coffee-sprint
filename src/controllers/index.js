@@ -1,7 +1,8 @@
 const { Router } = require('express');
+const authController = require('./auth-controller');
 const coffeeController = require('./coffee-controller');
 
-const controllers = [coffeeController];
+const controllers = [coffeeController, authController];
 
 module.exports = (app) => {
   controllers.forEach(([path, handler]) => {

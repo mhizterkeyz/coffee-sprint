@@ -6,9 +6,11 @@ exports.HTTP_STATUS = {
   CONFLICT: 409,
   UNPROCESSABLE_ENTITY: 422,
   SERVER_ERROR: 500,
+  UNAUTHORIZED: 401,
 };
 
 exports.DATABASE_TABLE = {
   COFFEE: 'coffee',
   USER: 'user',
+  TOKEN: 'token',
 };

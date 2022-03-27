@@ -22,11 +22,14 @@
     "prettier": "^2.6.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash.merge": "^4.6.2",
+    "moment": "^2.29.1",
     "mongoose": "^6.2.7",
     "mongoose-delete": "^0.5.4",
     "mongoose-paginate-v2": "^1.6.3",
