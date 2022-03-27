@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 const sendGrid = require('@sendgrid/mail');
 const config = require('../shared/config');
 

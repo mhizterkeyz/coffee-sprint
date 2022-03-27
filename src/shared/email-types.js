@@ -1,5 +1,4 @@
 /* eslint-disable max-classes-per-file */
-
 const config = require('./config');
 
 class Address {
