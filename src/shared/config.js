@@ -6,4 +6,7 @@ module.exports = () => ({
     secretKey: process.env.JWT_SECRET_KEY,
     expiresIn: process.env.JWT_EXPIRES_IN,
   },
+  anonymousSms: {
+    apiUrl: process.env.ANONYMOUS_SMS_API_URL,
+  },
 });
