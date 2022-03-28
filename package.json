@@ -35,6 +35,7 @@
     "mongoose": "^6.2.7",
     "mongoose-delete": "^0.5.4",
     "mongoose-paginate-v2": "^1.6.3",
+    "nunjucks": "^3.2.3",
     "winston": "^3.6.0"
   }
 }
