@@ -1,17 +1,12 @@
 const axios = require('axios');
 const config = require('../shared/config');
 
-let anonymousSmsAxios;
-
+const { apiUrl } = config().anonymousSms;
+const anonymousSmsAxios = axios.create({
+  baseURL: apiUrl,
+});
 class SmsService {
-  constructor() {
-    const { apiUrl } = config().anonymousSms;
-    anonymousSmsAxios = axios.create({
-      baseURL: apiUrl,
-    });
-  }
-
-  async sendSms(recipient, message) {
+  static async sendSms(recipient, message) {
     await anonymousSmsAxios.post('/notifications/sms', {
       sender: 'N-Alert',
       recipient,
@@ -20,4 +15,4 @@ class SmsService {
   }
 }
 
-module.exports = new SmsService();
+module.exports = SmsService;

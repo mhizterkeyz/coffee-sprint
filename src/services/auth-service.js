@@ -7,6 +7,7 @@ const config = require('../shared/config');
 const BadRequestException = require('../shared/exceptions/bad-request-exception');
 const UnauthorizedException = require('../shared/exceptions/unauthorized-exception');
 const ValidationException = require('../shared/exceptions/validation-exception');
+const NotificationService = require('./notification-service');
 const tokenService = require('./token-service');
 
 module.exports = {
@@ -28,8 +29,32 @@ module.exports = {
 
     const password = await hash(plainPassword, 10);
     const user = await UserRepository.createUser({ ...payload, password });
-    // TODO: send phone verification text
-    // TODO: send email verification email
+    let phoneVerificationCode;
+    let emailVerificationCode;
+    if (!user.email) {
+      const { token } = await tokenService.createToken({
+        purpose: 'VerifyPhone',
+        meta: { userId: user.id, type: 'verifyPhone' },
+      });
+      phoneVerificationCode = token;
+    } else {
+      [{ token: phoneVerificationCode }, { token: emailVerificationCode }] =
+        await Promise.all([
+          tokenService.createToken({
+            purpose: 'VerifyPhone',
+            meta: { userId: user.id, type: 'verifyPhone' },
+          }),
+          tokenService.createToken({
+            purpose: 'VerifyEmail',
+            meta: { userId: user.id, type: 'verifyEmail' },
+          }),
+        ]);
+    }
+    NotificationService.sendAuthVerification({
+      user,
+      phoneVerificationCode,
+      emailVerificationCode,
+    });
 
     return this.getLoggedInUser(user);
   },

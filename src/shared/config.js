@@ -14,4 +14,5 @@ module.exports = () => ({
     defaultFromName: process.env.SENDGRID_DEFAULT_FROM_NAME,
     defaultFromEmail: process.env.SENDGRID_DEFAULT_FROM_EMAIL,
   },
+  dynamicLink: process.env.DYNAMIC_LINK,
 });

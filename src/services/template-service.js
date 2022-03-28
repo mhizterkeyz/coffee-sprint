@@ -5,8 +5,8 @@ const path = Path.join(__dirname, '../../', 'templates');
 const templateEngine = configure(path, { autoescape: true });
 
 class TemplateService {
-  parseHtmlTemplate(template, context) {
-    return templateEngine.render(template, context);
+  static parseHtmlTemplate(template, context) {
+    return templateEngine.render(`${template}.njk`, context);
   }
 }
 
